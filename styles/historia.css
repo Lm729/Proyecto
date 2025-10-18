@@ -1,0 +1,75 @@
+body {
+    background-image: url(../assets/imagenes/historia-programacion.jpg);
+}
+
+nav {
+    background-color: rgba(37, 38, 52, 0.44);
+}
+
+header {
+    height: 63vh;
+    background-color: rgba(37, 38, 52, 0.44);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.padre {
+    display: flex;
+    padding: 80px;
+}
+
+.padre2 {
+    display: flex;
+    padding: 80px;
+    flex-direction: row-reverse;
+}
+
+.historia {
+    height: 500px;
+    width: 800px;
+}
+
+.hijo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 4rem;
+    font-family: "Raleway", sans-serif;
+}
+
+p {
+    font-family: "Raleway", sans-serif;
+}
+
+video {
+    align-self: center;
+    height: 1200px;
+    width: 1400px;
+}
+
+.reproducion {
+    background-color: #2f3645;
+    align-self: center;
+    display: flex;
+    justify-content: stretch;
+    height: 100px;
+    width: 1400px;
+}
+
+.boton {
+    height: 30px;
+    width: 50px;
+}
+
+img {
+    height: 20px;
+    width: 40px;
+}

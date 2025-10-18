@@ -1,0 +1,44 @@
+body {
+    background-image: url(../assets/imagenes/fondo.jpg);
+}
+
+header {
+    height: 91vh;
+}
+
+main {
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    height: 80vh;
+}
+
+h2 {
+    font-size: 3rem;
+    padding: 80px;
+}
+
+
+section {
+    display: flex;
+    justify-content: space-around;
+}
+
+div {
+    text-align: center;
+}
+
+.contenido {
+    flex-direction: column;
+    
+}
+
+img {
+    height: 300px;
+    width: 450px;
+}
+
+
+.boton { 
+    background-color: black;
+    padding-inline: 130px;
+}
