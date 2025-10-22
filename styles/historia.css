@@ -2,10 +2,6 @@ body {
     background-image: url(../assets/imagenes/historia-programacion.jpg);
 }
 
-nav {
-    background-color: var(--azul-transparente);
-}
-
 header {
     height: 63vh;
     background-color: var(--azul-transparente);
@@ -67,11 +63,6 @@ p {
 h2 {
     text-align: center;
     font-size: 3rem;
-    font-family: "Raleway", sans-serif;
-}
-
-p {
-    font-family: "Raleway", sans-serif;
 }
 
 video {
