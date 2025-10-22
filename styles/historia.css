@@ -3,12 +3,12 @@ body {
 }
 
 nav {
-    background-color: rgba(37, 38, 52, 0.44);
+    background-color: var(--azul-transparente);
 }
 
 header {
     height: 63vh;
-    background-color: rgba(37, 38, 52, 0.44);
+    background-color: var(--azul-transparente);
 }
 
 main {
@@ -19,6 +19,11 @@ main {
 .padre {
     display: flex;
     padding: 80px;
+}
+
+.titulo_historia {
+    font-weight: 500;
+    text-shadow: 2px 2px var(--fondo-sombras), 3px 3px var(--azul-transparente2);
 }
 
 .padre2 {
