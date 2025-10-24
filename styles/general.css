@@ -43,6 +43,14 @@ ul {
 
 .link {
     text-shadow: 2px 2px var(--sombra-negra);
+    display: block;
+    transform-origin: center;
+}
+
+.link:hover{
+    animation-name: fondo;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 header {
@@ -91,4 +99,15 @@ h3 {
 
 .autor {
     margin-right: 100px;
+}
+
+@keyframes fondo {
+    from {
+        transform: translateY(0) translateX(0);  
+    }
+
+    to {
+        transform: translateY(3px) translateX(3px);
+        text-shadow: none;
+    }
 }

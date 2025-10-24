@@ -85,6 +85,12 @@ video {
     height: 40px;
     width: 80px;
     margin: 10px;
+    box-shadow: 1.5px 1.5px var(--fondo-sombras), 3px 3px var(--azul-transparente2);
+}
+
+.boton:active {
+    transform: translateX(3px) translateY(3px);
+    box-shadow: none;
 }
 
 img {
