@@ -71,7 +71,7 @@ video {
 }
 
 .reproducion {
-    background-color: #2f3645;
+    background-color: var(--sombra-negra2);
     align-self: center;
     display: flex;
     justify-content: flex-start;

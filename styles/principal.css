@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    height: 91vh;
+    height: 96vh;
 }
 
 main {
@@ -46,6 +46,6 @@ p {
 .boton { 
     padding: 15px;
     font-size: 15px;
-    background-color: var(--footer);
+    background-color: var(--sombra-negra2);
     padding-inline: 130px;
 }
