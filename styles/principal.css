@@ -22,7 +22,7 @@ h2 {
 
 section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 div {
@@ -31,7 +31,21 @@ div {
 
 .contenido {
     flex-direction: column;
-    
+    opacity: 0%;
+}
+
+.historia {
+    animation-name: izquierda;
+    animation-duration: 5s;
+    animation-timing-function: cubic-bezier(0.25,0.1,0.25,1);
+    animation-fill-mode: forwards;
+}
+
+.juego {
+    animation-name: derecha;
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
 }
 
 img {
@@ -48,4 +62,26 @@ p {
     font-size: 15px;
     background-color: var(--sombra-negra2);
     padding-inline: 130px;
+}
+
+@keyframes izquierda {
+    from {
+        transform: translateX(-330px);
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 100%;
+    }
+}
+
+@keyframes derecha {
+    from {
+        transform: translateX(330px);
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 100%;
+    }
 }
