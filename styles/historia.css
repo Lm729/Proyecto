@@ -22,9 +22,7 @@ main {
     text-shadow: 2px 2px var(--fondo-sombras), 3px 3px var(--azul-transparente2);
 }
 
-.padre2 {
-    display: flex;
-    padding: 80px;
+#padre2 {
     flex-direction: row-reverse;
 }
 
