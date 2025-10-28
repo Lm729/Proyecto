@@ -10,6 +10,7 @@
     <link rel= "stylesheet" href= "../styles/general.css">
     <link rel= "stylesheet" href= "../styles/historia.css">
     <script src= "../JavaScript/general.js" defer></script>
+    <script src = "../JavaScript/historia.js"></script>
 </head>
 <body>
     <nav>
@@ -28,8 +29,8 @@
     </header>
     <main>
         <div class = "padre">
-            <img class = "historia" src = "../assets/imagenes/1-800x534.jpg" alt = "Cuatro personas analizando datos">
-            <div class = "hijo">
+            <img class = "historia" id = "historia_img" src = "../assets/imagenes/1-800x534.jpg" alt = "Cuatro personas analizando datos">
+            <div class = "hijo" id = "hijo1">
                 <h2 class = "titulo_historia">El principio de la historia de la programación</h2>
                 <p>El primer lenguaje de programación fue un algoritmo creado por Ada Lovelace en 1883.<br>
                 Ada Lovelace creó este algoritmo para el motor analítico de Charles Babbage.<br>
@@ -39,15 +40,15 @@
             </div>
         </div>
         <div class = "padre" id = "padre2">
-            <img class = "historia" id = "historia_img" src = "../assets/imagenes/nerdpol-ken-den.webp" alt = "Dos personas escriben en una máquina">
-            <div class = "hijo">
+            <img id = "historia_img2" src = "../assets/imagenes/nerdpol-ken-den.webp" alt = "Dos personas escriben en una máquina">
+            <div class = "hijo" id ="hijo2">
                 <h2 class = "titulo_historia">Lenguaje de ensamblaje</h2>
                 <p id = "hijo_p">Los primeros ordenadores modernos (alimentados eléctricamente) fueron creados en los años 40. Estas computadoras estaban limitadas en velocidad y capacidad de memoria.<br>
                 Debido a estas limitaciones, los programadores se vieron obligados a escribir manualmente programas en lenguaje ensamblador. Siendo un lenguaje de programación de bajo nivel, era una tarea difícil programarlo manualmente. Los programadores se dieron cuenta entonces de la necesidad de lenguajes de alto nivel para disminuir el esfuerzo que se requería para escribir los programas en lenguaje ensamblador manualmente.</p>
             </div>
         </div>
         <div class = "padre">
-            <img class = "historia" id = "historia_img2" src = "../assets/imagenes/img-historia.jpg" alt = "Dos personas analizando el funcionamiento de la máquina">
+            <img id = "historia_img3" src = "../assets/imagenes/img-historia.jpg" alt = "Dos personas analizando el funcionamiento de la máquina">
             <div class = "hijo">
                 <h2 class = "titulo_historia">Los primeros lenguajes de programación</h2>
                 <p>FORmulaTRANslation es el lenguaje de programación más antiguo y que continúa en uso. Creada por <strong>John Backus</strong> en <strong>1957</strong>, esta herramienta fue desarrollada para la computación científica de alto nivel, matemáticas y estadísticas.<br>
@@ -71,10 +72,10 @@
         <video src = "../assets/video/historia-Comp.mp4" poster = "../assets/imagenes/img-video.jpg" alt = "Video que habla de la historia de la computación"></video>
         <div class= "reproducion">
             <button class = "boton">
-                <img src = "../assets/imagenes/play.svg" alt = "Botón play">
+                <img class = "botones_img" src = "../assets/imagenes/play.svg" alt = "Botón play">
             </button>
             <button class = "boton">
-                <img src = "../assets/imagenes/pausa.svg" alt = "Botón pausa">
+                <img class = "botones_img" src = "../assets/imagenes/pausa.svg" alt = "Botón pausa">
         </div>    
         </button>
     </main>
