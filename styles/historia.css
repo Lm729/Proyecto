@@ -17,16 +17,42 @@ main {
     padding: 80px;
 }
 
+.historia {
+    height: 500px;
+    width: 800px;
+    opacity: 0%;
+}
+
+.img1 {
+    animation-name: caja;
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(0.25,0.1,0.25,1);
+    animation-fill-mode: forwards;
+}
+
+.hijo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0%;
+}
+
 .titulo_historia {
     font-weight: 500;
     text-shadow: 2px 2px var(--fondo-sombras), 3px 3px var(--azul-transparente2);
+}
+
+p {
+    text-align: left;
+    margin-left: 100px;
 }
 
 #padre2 {
     flex-direction: row-reverse;
 }
 
-#historia_img {
+#historia_img2 {
     height: 700px;
     width: 900px;
 }
@@ -36,26 +62,9 @@ main {
     margin-right: 10px;
 }
 
-#historia_img2 {
+#historia_img3 {
     height: 600px;
     width: 800px;
-}
-
-.historia {
-    height: 500px;
-    width: 800px;
-}
-
-.hijo {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-p {
-    text-align: left;
-    margin-left: 100px;
 }
 
 h2 {
@@ -91,7 +100,18 @@ video {
     box-shadow: none;
 }
 
-img {
+.botones_img {
     height: 20px;
     width: 40px;
+}
+
+@keyframes caja {
+    from {
+        transform: translateX(-400px) translateY(200px);
+    }    
+
+    to {
+        transform: translateX(0px) translateY(0px);
+        opacity: 100%;
+    }
 }
