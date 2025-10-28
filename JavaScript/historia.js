@@ -5,7 +5,14 @@
     animation-duration: 4s y 3s;
     animation-timing-function: cubic-bezier.
     animation-fill-mode: forwards;
-/*
+4) Cambiar las clases y unirlas en ccs.
+5) Usar el id para no perder los estilos.
+*/
 window.addEventListener('scroll' , function () {
-    const 
-}
+    const historia = document.querySelector("#historia_img");
+    const div = document.querySelector("#hijo1");
+
+    if (window.scrollY >= window.innerHeight *0.1) {
+        historia.classList.add('img1');
+    }
+});
