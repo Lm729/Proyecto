@@ -28,6 +28,7 @@ nav {
     height: 11%;
     background-color: transparent;
     transition: background-color 1s ease ;
+    z-index: 3;
 }
 
 a {
