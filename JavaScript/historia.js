@@ -14,5 +14,28 @@ window.addEventListener('scroll' , function () {
 
     if (window.scrollY >= window.innerHeight *0.1) {
         historia.classList.add('img1');
+        div.classList.add('hijo_puerta');
+    }
+});
+
+window.addEventListener('scroll' , function () {
+    const historia = document.querySelector("#historia_img2");
+    const div = document.querySelector("#hijo2");
+
+    console.log(scrollY);
+    
+    if (window.scrollY >= 1040) {
+        historia.classList.add('img2');
+        div.classList.add('hijo_puerta2');
+    }
+});
+
+window.addEventListener('scroll' , function () {
+    const historia = document.querySelector("#historia_img3");
+    const div = document.querySelector("#hijo3");
+
+    if (window.scrollY >= 1920) {
+        historia.classList.add('img1');
+        div.classList.add('hijo_puerta');
     }
 });
