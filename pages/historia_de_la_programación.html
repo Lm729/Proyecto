@@ -10,7 +10,7 @@
     <link rel= "stylesheet" href= "../styles/general.css">
     <link rel= "stylesheet" href= "../styles/historia.css">
     <script src= "../JavaScript/general.js" defer></script>
-    <script src = "../JavaScript/historia.js"></script>
+    <script src = "../JavaScript/historia.js" defer></script>
 </head>
 <body>
     <nav>
@@ -51,19 +51,19 @@
             <img id = "historia_img3" src = "../assets/imagenes/img-historia.jpg" alt = "Dos personas analizando el funcionamiento de la máquina">
             <div class = "hijo" id = "hijo3">
                 <h2 class = "titulo_historia">Los primeros lenguajes de programación</h2>
-                <p>FORmulaTRANslation es el lenguaje de programación más antiguo y que continúa en uso. Creada por <strong>John Backus</strong> en <strong>1957</strong>, esta herramienta fue desarrollada para la computación científica de alto nivel, matemáticas y estadísticas.<br>
+                <p id = "parrafo">FORmulaTRANslation es el lenguaje de programación más antiguo y que continúa en uso. Creada por John Backus en 1957, esta herramienta fue desarrollada para la computación científica de alto nivel, matemáticas y estadísticas.<br>
 
                 A día de hoy, este lenguaje se sigue usando en la industria automovilística, aeroespacial, gubernamental y la investigación. Por ejemplo, es muy útil para el pronóstico de los servicios meteorológicos.<br>
 
-                En <strong>1959</strong> se desarrollo <strong>Cobol</strong>, que está detrás de la mayoría de los sistemas de transacciones de negocio de los procesos de las tarjetas de crédito, ATMs (Modo de Transferencia Asíncrona), telefonía, sistemas hospitalarios, gobierno, sistemas automatizados y señales de tráfico.<br>
+                En 1959 se desarrollo Cobol, que está detrás de la mayoría de los sistemas de transacciones de negocio de los procesos de las tarjetas de crédito, ATMs (Modo de Transferencia Asíncrona), telefonía, sistemas hospitalarios, gobierno, sistemas automatizados y señales de tráfico.<br>
 
-                El desarrollo de <strong>Cobol</strong>, creado por <strong>Grace Murray Hopper</strong>, muestra un lenguaje famipar y uniforme para transacciones empresariales. Por ejemplo, lo usan en el servicio postal estadounidense.<br>
+                El desarrollo de Cobol, creado por Grace Murray Hopper, muestra un lenguaje famipar y uniforme para transacciones empresariales. Por ejemplo, lo usan en el servicio postal estadounidense.<br>
 
-                En <strong>1964</strong> se creo <strong>Basic</strong>, que fue diseñado como un lenguaje simppficado para aquellos que no tenían como base fuertes conocimientos técnicos o matemáticos.<br>
+                En 1964 se creo Basic, que fue diseñado como un lenguaje simppficado para aquellos que no tenían como base fuertes conocimientos técnicos o matemáticos.<br>
 
-                Entre <strong>1969</strong> y <strong>1973</strong> se crea <strong>C</strong>,a manos de Dennis Ritchie para los laboratorios Bell Telephone para usarlos en el sistema <strong>Unix</strong>. Se le llamó <strong>«C»</strong> porque sus características derivaban de un lenguaje anterior llamado <strong>«B»</strong>.<br>
+                Entre 1969 y 1973 se crea C,a manos de Dennis Ritchie para los laboratorios Bell Telephone para usarlos en el sistema Unix. Se le llamó «C» porque sus características derivaban de un lenguaje anterior llamado «B».<br>
 
-                En los laboratorios Bells, Bjarne Stroustrup modificó el lenguaje <strong>C</strong> al <strong>C++</strong>, creando lo que muchos consideran el lenguaje de programación más popular que ha existido nunca. Además, ha sido listado en lo alto de los top ten de los lenguajes de programación desde <strong>1986</strong> y archivado en el Hall of Fame en 2003. Hoy en día es usado por <strong>Firefox</strong>, <strong>Office</strong> y <strong>Adobe PDF Reader</strong>.<br>
+                En los laboratorios Bells, Bjarne Stroustrup modificó el lenguaje C al C++, creando lo que muchos consideran el lenguaje de programación más popular que ha existido nunca. Además, ha sido listado en lo alto de los top ten de los lenguajes de programación desde 1986 y archivado en el Hall of Fame en 2003. Hoy en día es usado por Firefox, Office y Adobe PDF Reader.<br>
 
                 Esto dio el puntapie a que se sigan perfeccionando los lenguajes hasta llegar al os lenguajes de hoy en dia</p>
             </div>
@@ -71,13 +71,16 @@
         <h2 class = "titulo_historia">Hablemos un poquito mas...</h2>
         <video src = "../assets/video/historia-Comp.mp4" poster = "../assets/imagenes/img-video.jpg" alt = "Video que habla de la historia de la computación"></video>
         <div class= "reproducion">
-            <button class = "boton">
+            <button class = "boton" id = "play">
                 <img class = "botones_img" src = "../assets/imagenes/play.svg" alt = "Botón play">
             </button>
-            <button class = "boton">
+            <button class = "boton" id = "pause">
                 <img class = "botones_img" src = "../assets/imagenes/pausa.svg" alt = "Botón pausa">
-        </div>    
-        </button>
+            </button>
+            <div class = "contador">
+                <span id = "tiempo_actual">00:00</span>
+            </div>
+        </div>  
     </main>
     <footer>
         <div class = "logo">
