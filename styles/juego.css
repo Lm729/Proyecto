@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    height: 63vh;
+    height: 70vh;
     background-color: var(--azul-transparente);
 }
 
@@ -68,7 +68,7 @@ p {
 
 .animacion {
     animation-name: final;
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-fill-mode:forwards
 }
 
@@ -79,9 +79,11 @@ p {
 
     50% {
         transform: scale(150%);
+        gap: 0px;
     }
 
     100% {
         transform: scale(100%);
+        gap: 0px;
     }
 }
