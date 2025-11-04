@@ -13,11 +13,18 @@ zonas.forEach(zona => {
     });
     
     zona.addEventListener('drop' , event => {
-        const IdiImagen = event.dataTransfer.getData('imagen');
-        const imagen = document.getElementById(IdiImagen);
+        let IdiImagen = event.dataTransfer.getData('imagen');
+        let imagen = document.getElementById(IdiImagen);
+        let parrafo = document.querySelector('p');
         console.log("Se soltó en:", event.target);
         zona.appendChild(imagen);
         imagen.removeAttribute('id');
-        imagen.classList.add('animacion');
+        parrafo.remove();
+        //Comprobar si todo esta bien
+        //llamar a la funcion comprobar
+        //Si esta mal llamar a la funcion animacion-falsa y la funcion reacer
+        //llamar a la funcion animacion-correcta
     });
-});
+});1
+//Crear una Funcion que utilice este codigo:
+/*imagen.classList.add('animacion');*/
