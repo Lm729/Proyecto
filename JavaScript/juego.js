@@ -1,13 +1,93 @@
 const imagenes = document.querySelectorAll('.cuadro');
 const zonas = document.querySelectorAll('.zona');
+const div = document.getElementById('general');
+const titulo = document.querySelector('h2')
+let contador = 0;
 
-imagenes.forEach(cuadro => {
+/*imagenes.forEach(cuadro => {
     cuadro.addEventListener('dragstart' , event => {
+        event.dataTransfer.setData('imagen' , event.target.id);
+    });
+});*/
+
+imagenes.forEach(function(cuadro) {
+    cuadro.addEventListener('dragstart', function(event) {
         event.dataTransfer.setData('imagen' , event.target.id);
     });
 });
 
-zonas.forEach(zona => {
+zonas.forEach(function(zona) {
+    zona.addEventListener('dragover' , function(event) {
+        event.preventDefault();
+    })
+
+    zona.addEventListener('drop' , function(event) {
+        let IdImagen = event.dataTransfer.getData('imagen');
+        let imagen = document.getElementById(IdImagen);
+        let parrafo = document.querySelector('p');
+        /*console.log("Se soltó en:", event.target);*/
+        zona.appendChild(imagen);
+        imagen.removeAttribute('id');
+        parrafo.remove();
+        contador ++;
+        console.log(contador);
+
+        if (contador === imagenes.length) {
+            console.log('Todas la imagenes colocadas');
+            zonas.forEach(zona => zona.style.border = 'none');
+            /*const div = document.getElementById('general');*/
+            div.classList.add('animacion');
+            /*titulo.remove();*/
+        }
+        /*verificacion();*/
+    })
+    /*titulo.remove();*/
+});
+
+div.addEventListener('animationend' , function() {
+    console.log('La animación termimnó');
+    titulo.remove()
+    div.remove()
+})
+/*const div = document.getElementById('general');
+div.classList.add('animacion');*/
+
+/*function verificacion () {
+    const zonas = [
+        document.getElementById('zona_izquierda') ,
+        document.getElementById('zona_centro') , 
+        document.getElementById('zona_derecha')
+    ]
+
+    const formato = ['izquierda' , 'centro' , 'derecha']
+
+    for (let i = 0; i < zonas.length; i++) {
+        const imagen = zonas [i].querySelector('img');
+        console.log('se ejecuta FOR');
+                
+        if (!imagen || imagen.id !== formato [i]) {
+            console.log('Mal ordenado');
+            
+            /*animacionFalsa();*/
+      /*      break;
+        }
+
+        else {
+            /*animacionCorrecta();*/
+        /*    zonas.forEach(zona => zona.classList.add('animacion'));
+            console.log('se ejecuta orden'); 
+        }
+                
+        /*if (orden) {
+            /*animacionCorrecta();*/
+         /*   zonas.classList.add('animacion');
+        }*/
+    /*}
+};*/
+
+/*zonas.forEach(zona => zona.classList.add('animacion'));*/
+
+/*zonas.forEach(zona => {
     zona.addEventListener('dragover' , event => {
         event.preventDefault();
     });
@@ -16,15 +96,98 @@ zonas.forEach(zona => {
         let IdiImagen = event.dataTransfer.getData('imagen');
         let imagen = document.getElementById(IdiImagen);
         let parrafo = document.querySelector('p');
-        console.log("Se soltó en:", event.target);
-        zona.appendChild(imagen);
+        /*console.log("Se soltó en:", event.target);*/
+  /*      zona.appendChild(imagen);
         imagen.removeAttribute('id');
         parrafo.remove();
+        /*verificacion();*/
+        /*animacionCorrecta();*/
         //Comprobar si todo esta bien
         //llamar a la funcion comprobar
         //Si esta mal llamar a la funcion animacion-falsa y la funcion reacer
         //llamar a la funcion animacion-correcta
+    /*    const verificacion = () => {
+            const zonas = [
+                document.getElementById('zona_izquierda') ,
+                document.getElementById('zona_centro') , 
+                document.getElementById('zona_derecha')
+            ]
+
+        const formato = ['izquierda' , 'centro' , 'derecha']
+        let orden = true;
+
+        for (let i = 0; i < zonas.length; i++) {
+            const imagen = zonas [i].querySelector('img');
+            console.log('se ejecuta FOR');
+            
+            if (!imagen || imagen.id !== formato [i]) {
+                orden = false;
+                /*animacionFalsa();*/
+                /*break;
+                }
+                     
+                if (orden) {
+                    /*animacionCorrecta();*/
+                  /*  zonas.classList.add('animacion');
+                }
+            }
+        }
     });
-});1
+    /*verificacion();*/
+    /*animacionFalsa();*/
+/*});*/
+
+/*verificacion();*/
 //Crear una Funcion que utilice este codigo:
 /*imagen.classList.add('animacion');*/
+
+/*const div = document.getElementById('general');*/
+
+/*function verificacion () {
+    console.log('se ejecuto la funcion verificar');
+    /*const zonaIzquierda = document.getElementById('zona_izquierda');
+    const zonaCentro = document.getElementById('zona_centro');
+    const zonaDerecha = document.getElementById('zona_derecha');*/
+
+    /*const imagenIzquierda = document.getElementById('izquierda');
+    const imagenCentro = document.getElementById('centro');
+    const imagenDerecha = document.getElementById('derecha');*/
+
+    /*const zonas = [
+        document.getElementById('zona_izquierda') ,
+        document.getElementById('zona_centro') , 
+        document.getElementById('zona_derecha')
+    ]
+
+    const formato = ['izquierda' , 'centro' , 'derecha']
+    let orden = true;
+
+    for (let i = 0; i < zonas.length; i++) {
+        const imagen = zonas [i].querySelector('img');
+        console.log('se ejecuta FOR');
+        
+        
+        if (!imagen || imagen.id !== formato [i]) {
+            orden = false;
+            /*animacionFalsa();*/
+      /*      break;
+        }
+
+        /*if (imagen || imagen.id === formato [i]) {
+            animacionCorrecta();
+        }*/
+
+        /*if (orden) {
+            /*animacionCorrecta();*/
+           /* zonas.classList.add('animacion');
+        }*/
+  /*  }
+};*/
+
+/*animacionCorrecta();*/
+
+/*function animacionCorrecta () {
+    zonas.classList.add('animacion');
+    console.log('se ejecuto la funcion de animacion');
+};*/
+
