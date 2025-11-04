@@ -32,12 +32,12 @@ const video = document.querySelector('video');
 const botonPlay = document.querySelector('#play');
 const botonPause = document.querySelector('#pause');
 const tiempoActual = document.getElementById('tiempo_actual');
-const body = document.querySelector('body');
 
-console.dir(video);
+/*console.dir(video);*/
 
-body.addEventListener('DOMContentLoaded' , () => {
-    document.querySelector('tiempo_actual').textContent = video.duration;
+video.addEventListener('loadedmetadata' , () => {
+    let duracion = fromatoTiempo(video.duration);
+    tiempoActual.textContent = "Duración del Video " + duracion;
 });
 
 botonPlay.addEventListener('click' , () => {
@@ -55,10 +55,15 @@ botonPause.addEventListener('click' , () => {
 })
 
 const fromatoTiempo = (tiempo) => {
-    let minutos;
-    let segundos;
-    
-    if (tiempo >= 60) {
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = Math.floor (tiempo % 60);
+
+    if (minutos < 10) minutos = `0${minutos}`;
+    if (segundos < 10) segundos = `0${segundos}`;
+
+    return `${minutos}:${segundos}`;
+};
+   /* if (tiempo >= 60) {
         minutos = tiempo / 60;
     }
 
@@ -67,7 +72,7 @@ const fromatoTiempo = (tiempo) => {
     }
     segundos = (tiempo % 60).toFixed(0)
     return `${minutos}:${segundos}`
-};
+};*/
 
 const medidaTiempo = () => {
     setInterval( () => {
