@@ -2,6 +2,7 @@ const imagenes = document.querySelectorAll('.cuadro');
 const zonas = document.querySelectorAll('.zona');
 const div = document.getElementById('general');
 const titulo = document.querySelector('h2')
+const boton = document.createElement('button');
 let contador = 0;
 
 /*imagenes.forEach(cuadro => {
@@ -34,9 +35,12 @@ zonas.forEach(function(zona) {
 
         if (contador === imagenes.length) {
             console.log('Todas la imagenes colocadas');
+            document.querySelector('section').appendChild(boton);
+            boton.textContent = "Reiniciar";
+            boton.classList.add('boton');
             zonas.forEach(zona => zona.style.border = 'none');
             /*const div = document.getElementById('general');*/
-            div.classList.add('animacion');
+            div.classList.add('animacion_cuadro');
             /*titulo.remove();*/
         }
         /*verificacion();*/
@@ -46,9 +50,10 @@ zonas.forEach(function(zona) {
 
 div.addEventListener('animationend' , function() {
     console.log('La animación termimnó');
-    titulo.remove()
-    div.remove()
-})
+    zonas.forEach(zona => zona.remove());
+    titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
+    titulo.classList.add('animacion_resuelta');
+});
 /*const div = document.getElementById('general');
 div.classList.add('animacion');*/
 
