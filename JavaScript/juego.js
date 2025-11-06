@@ -2,8 +2,13 @@ const imagenes = document.querySelectorAll('.cuadro');
 const zonas = document.querySelectorAll('.zona');
 const div = document.getElementById('general');
 const titulo = document.querySelector('h2')
-const boton = document.createElement('button');
+const boton = document.createElement('a');
+const div2 = document.querySelector('.boton');
 let contador = 0;
+
+const estilo = document.querySelector('.reiniciar');
+
+estilo.classList.remove('reiniciar');
 
 /*imagenes.forEach(cuadro => {
     cuadro.addEventListener('dragstart' , event => {
@@ -20,7 +25,7 @@ imagenes.forEach(function(cuadro) {
 zonas.forEach(function(zona) {
     zona.addEventListener('dragover' , function(event) {
         event.preventDefault();
-    })
+    });
 
     zona.addEventListener('drop' , function(event) {
         let IdImagen = event.dataTransfer.getData('imagen');
@@ -35,29 +40,87 @@ zonas.forEach(function(zona) {
 
         if (contador === imagenes.length) {
             console.log('Todas la imagenes colocadas');
-            document.querySelector('section').appendChild(boton);
+            estilo.classList.add('reiniciar');
+            document.querySelector('.reiniciar').appendChild(boton);
+            boton.href = "juego.html";
             boton.textContent = "Reiniciar";
             boton.classList.add('boton');
             zonas.forEach(zona => zona.style.border = 'none');
             /*const div = document.getElementById('general');*/
             div.classList.add('animacion_cuadro');
             /*titulo.remove();*/
-        }
+        };
+
+        div.addEventListener('animationend' , function() {
+            console.log('La animación termimnó');
+            verificacion();
+            //funcion finalBueno
+            /*zonas.forEach(zona => zona.remove());
+            titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
+            titulo.classList.add('animacion_resuelta');
+            //funcion finalMalo
+            zonas.forEach(zona => zona.remove());
+            titulo.innerHTML = "Lo sentimos, Puzzle no resuelto.<br> Prueba otra vez ";
+            titulo.classList.add('animacion_resuelta');*/
+            });
+        /*const div = document.getElementById('general');
+        div.classList.add('animacion');*/
+
+    function verificacion () {
+        imagen.setAttribute('id' , 'zona_izquierda');
+        imagen.setAttribute('id' , 'zona_centro');
+        imagen.setAttribute('id' , 'zona_derecha');
+        const zonas = [
+            document.getElementById('zona_izquierda') ,
+            document.getElementById('zona_centro') , 
+            document.getElementById('zona_derecha')
+        ]
+
+        const formato = ['izquierda' , 'centro' , 'derecha']
+
+        for (let i = 0; i < zonas.length; i++) {
+            const imagen = zonas [i].querySelector('img');
+            console.log('se ejecuta FOR');
+                    
+            if (!imagen || imagen.id !== formato [i]) {
+                console.log('Mal ordenado');
+                
+                animacionMala();
+                break;
+            }
+
+            else {
+                animacionBuena();
+                console.log('se ejecuta orden'); 
+            }
+                    
+            /*if (orden) {
+                /*animacionCorrecta();*/
+            /*  zonas.classList.add('animacion');*/
+            }
+        };
         /*verificacion();*/
-    })
+    });
     /*titulo.remove();*/
 });
 
-div.addEventListener('animationend' , function() {
+/*div.addEventListener('animationend' , function() {
     console.log('La animación termimnó');
-    zonas.forEach(zona => zona.remove());
+    verificacion();
+    //funcion finalBueno
+    /*zonas.forEach(zona => zona.remove());
     titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
     titulo.classList.add('animacion_resuelta');
-});
+    //funcion finalMalo
+    zonas.forEach(zona => zona.remove());
+    titulo.innerHTML = "Lo sentimos, Puzzle no resuelto.<br> Prueba otra vez ";
+    titulo.classList.add('animacion_resuelta');*/
+/*});
 /*const div = document.getElementById('general');
 div.classList.add('animacion');*/
 
 /*function verificacion () {
+    imagen.setAttribute('id');
     const zonas = [
         document.getElementById('zona_izquierda') ,
         document.getElementById('zona_centro') , 
@@ -73,22 +136,32 @@ div.classList.add('animacion');*/
         if (!imagen || imagen.id !== formato [i]) {
             console.log('Mal ordenado');
             
-            /*animacionFalsa();*/
-      /*      break;
+            animacionMala();
+            break;
         }
 
         else {
-            /*animacionCorrecta();*/
-        /*    zonas.forEach(zona => zona.classList.add('animacion'));
+            animacionBuena();
             console.log('se ejecuta orden'); 
         }
                 
         /*if (orden) {
             /*animacionCorrecta();*/
-         /*   zonas.classList.add('animacion');
-        }*/
-    /*}
-};*/
+          /*  zonas.classList.add('animacion');*/
+  /*      }
+    };
+
+*/function animacionBuena() {
+    zonas.forEach(zona => zona.remove());
+    titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
+    titulo.classList.add('animacion_resuelta');
+};
+
+function animacionMala() {
+    zonas.forEach(zona => zona.remove());
+    titulo.innerHTML = "Lo sentimos, Puzzle no resuelto.<br> Prueba otra vez ";
+    titulo.classList.add('animacion_resuelta');
+};
 
 /*zonas.forEach(zona => zona.classList.add('animacion'));*/
 
