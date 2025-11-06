@@ -67,9 +67,9 @@ zonas.forEach(function(zona) {
         div.classList.add('animacion');*/
 
     function verificacion () {
-        imagen.setAttribute('id' , 'zona_izquierda');
-        imagen.setAttribute('id' , 'zona_centro');
-        imagen.setAttribute('id' , 'zona_derecha');
+        imagen.setAttribute('id' , 'izquierda');
+        imagen.setAttribute('id' , 'centro');
+        imagen.setAttribute('id' , 'derecha');
         const zonas = [
             document.getElementById('zona_izquierda') ,
             document.getElementById('zona_centro') , 
@@ -79,6 +79,7 @@ zonas.forEach(function(zona) {
         const formato = ['izquierda' , 'centro' , 'derecha']
 
         for (let i = 0; i < zonas.length; i++) {
+            console.log(zonas, i);
             const imagen = zonas [i].querySelector('img');
             console.log('se ejecuta FOR');
                     
@@ -151,7 +152,8 @@ div.classList.add('animacion');*/
   /*      }
     };
 
-*/function animacionBuena() {
+*/
+function animacionBuena() {
     zonas.forEach(zona => zona.remove());
     titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
     titulo.classList.add('animacion_resuelta');
