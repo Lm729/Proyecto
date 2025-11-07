@@ -67,23 +67,72 @@ zonas.forEach(function(zona) {
         div.classList.add('animacion');*/
 
     function verificacion () {
-        imagen.setAttribute('id' , 'izquierda');
-        imagen.setAttribute('id' , 'centro');
-        imagen.setAttribute('id' , 'derecha');
-        const zonas = [
+        /*const imagenId = [
+            imagen.setAttribute('id' , 'izquierda') ,
+            imagen.setAttribute('id' , 'centro') ,
+            imagen.setAttribute('id' , 'derecha')
+        ]*/
+        const zonasId = [
             document.getElementById('zona_izquierda') ,
             document.getElementById('zona_centro') , 
             document.getElementById('zona_derecha')
         ]
 
-        const formato = ['izquierda' , 'centro' , 'derecha']
+        const formatoId = ['izquierda' , 'centro' , 'derecha']
+        let contadorVerificacion = 0;
 
-        for (let i = 0; i < zonas.length; i++) {
-            console.log(zonas, i);
-            const imagen = zonas [i].querySelector('img');
+        for (let i = 0; i < zonasId.length; i++) {
+            console.log(zonasId, [i]);
             console.log('se ejecuta FOR');
-                    
-            if (!imagen || imagen.id !== formato [i]) {
+            
+            const zona = document.getElementById(zonasId[i]);
+                if (!zona) continue;
+
+            const img = zona.querySelector('img');
+                if (!img) continue;
+
+                
+                img.setAttribute('id', formatoId[i]);
+
+            
+                if (img.id === formatoId[i]) {
+                    contadorVerificacion ++;
+                }
+            };
+
+            if (contadorVerificacion === zonasId.length) {
+                console.log("Aramado correcto");
+            }
+
+            else {
+                console.log("Armado Incorrecto");
+            }
+            
+            /*const zona = document.getElementById(zonasId [i]);
+            if (!zona) continue;
+
+            /*const imagen = zonasId [i].querySelector('img');*/
+            /*const imagen = zona.querySelector('img');
+            if (!imagen) continue;
+
+            /*zona.setAttribute('id' , formatoId [i]);*/
+            /*imagen.setAttribute('id' , formatoId [i]);
+
+            if (imagen.id === formatoId [i]) {
+                console.log("Se suma al contador");
+                contador ++;
+            }
+
+            if (contador === zonasId.length) {
+                console.log("Armado Correcto");
+                animacionBuena();
+            }
+
+            else {
+                console.log("Armado Incorrecto");
+                animacionMala();
+            }
+            /*if (!imagen || imagen.id !== formatoId [i]) {
                 console.log('Mal ordenado');
                 
                 animacionMala();
@@ -93,15 +142,15 @@ zonas.forEach(function(zona) {
             else {
                 animacionBuena();
                 console.log('se ejecuta orden'); 
-            }
+            }*/
                     
             /*if (orden) {
                 /*animacionCorrecta();*/
             /*  zonas.classList.add('animacion');*/
             }
-        };
+        }
         /*verificacion();*/
-    });
+    );
     /*titulo.remove();*/
 });
 
