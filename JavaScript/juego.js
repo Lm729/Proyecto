@@ -10,12 +10,6 @@ const estilo = document.querySelector('.reiniciar');
 
 estilo.classList.remove('reiniciar');
 
-/*imagenes.forEach(cuadro => {
-    cuadro.addEventListener('dragstart' , event => {
-        event.dataTransfer.setData('imagen' , event.target.id);
-    });
-});*/
-
 imagenes.forEach(function(cuadro) {
     cuadro.addEventListener('dragstart', function(event) {
         event.dataTransfer.setData('imagen' , event.target.id);
@@ -31,7 +25,6 @@ zonas.forEach(function(zona) {
         let IdImagen = event.dataTransfer.getData('imagen');
         let imagen = document.getElementById(IdImagen);
         let parrafo = document.querySelector('p');
-        /*console.log("Se soltó en:", event.target);*/
         zona.appendChild(imagen);
         imagen.removeAttribute('id');
         parrafo.remove();
@@ -46,32 +39,24 @@ zonas.forEach(function(zona) {
             boton.textContent = "Reiniciar";
             boton.classList.add('boton');
             zonas.forEach(zona => zona.style.border = 'none');
-            /*const div = document.getElementById('general');*/
             div.classList.add('animacion_cuadro');
-            /*titulo.remove();*/
         };
 
-        div.addEventListener('animationend' , function() {
+        /*div.addEventListener('animationend' , function() {
             console.log('La animación termimnó');
             verificacion();
-            //funcion finalBueno
-            /*zonas.forEach(zona => zona.remove());
-            titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
-            titulo.classList.add('animacion_resuelta');
-            //funcion finalMalo
-            zonas.forEach(zona => zona.remove());
-            titulo.innerHTML = "Lo sentimos, Puzzle no resuelto.<br> Prueba otra vez ";
-            titulo.classList.add('animacion_resuelta');*/
-            });
-        /*const div = document.getElementById('general');
-        div.classList.add('animacion');*/
+            });*/
+        }
+    );
+});
 
-    function verificacion () {
-        /*const imagenId = [
-            imagen.setAttribute('id' , 'izquierda') ,
-            imagen.setAttribute('id' , 'centro') ,
-            imagen.setAttribute('id' , 'derecha')
-        ]*/
+div.addEventListener('animationend' , function() {
+        console.log('La animación termimnó');
+        verificacion();
+    });
+
+function verificacion () {
+
         const zonasId = [
             document.getElementById('zona_izquierda') ,
             document.getElementById('zona_centro') , 
@@ -85,46 +70,25 @@ zonas.forEach(function(zona) {
             console.log(zonasId, [i]);
             console.log('se ejecuta FOR');
             
-            const zona = document.getElementById(zonasId[i]);
+            const zona = zonasId[i];
                 if (!zona) continue;
 
             const img = zona.querySelector('img');
                 if (!img) continue;
 
                 
-                img.setAttribute('id', formatoId[i]);
-
-            
-                if (img.id === formatoId[i]) {
-                    contadorVerificacion ++;
+                /*img.setAttribute('id', formatoId[i]);*/
+                 if (img.getAttribute('data-posicion') === formatoId[i]) {
+                    contadorVerificacion++;
                 }
+            
+                /*if (img.id === formatoId[i]) {
+                    contadorVerificacion ++;
+                }*/
             };
 
             if (contadorVerificacion === zonasId.length) {
                 console.log("Aramado correcto");
-            }
-
-            else {
-                console.log("Armado Incorrecto");
-            }
-            
-            /*const zona = document.getElementById(zonasId [i]);
-            if (!zona) continue;
-
-            /*const imagen = zonasId [i].querySelector('img');*/
-            /*const imagen = zona.querySelector('img');
-            if (!imagen) continue;
-
-            /*zona.setAttribute('id' , formatoId [i]);*/
-            /*imagen.setAttribute('id' , formatoId [i]);
-
-            if (imagen.id === formatoId [i]) {
-                console.log("Se suma al contador");
-                contador ++;
-            }
-
-            if (contador === zonasId.length) {
-                console.log("Armado Correcto");
                 animacionBuena();
             }
 
@@ -132,76 +96,8 @@ zonas.forEach(function(zona) {
                 console.log("Armado Incorrecto");
                 animacionMala();
             }
-            /*if (!imagen || imagen.id !== formatoId [i]) {
-                console.log('Mal ordenado');
-                
-                animacionMala();
-                break;
-            }
+};
 
-            else {
-                animacionBuena();
-                console.log('se ejecuta orden'); 
-            }*/
-                    
-            /*if (orden) {
-                /*animacionCorrecta();*/
-            /*  zonas.classList.add('animacion');*/
-            }
-        }
-        /*verificacion();*/
-    );
-    /*titulo.remove();*/
-});
-
-/*div.addEventListener('animationend' , function() {
-    console.log('La animación termimnó');
-    verificacion();
-    //funcion finalBueno
-    /*zonas.forEach(zona => zona.remove());
-    titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
-    titulo.classList.add('animacion_resuelta');
-    //funcion finalMalo
-    zonas.forEach(zona => zona.remove());
-    titulo.innerHTML = "Lo sentimos, Puzzle no resuelto.<br> Prueba otra vez ";
-    titulo.classList.add('animacion_resuelta');*/
-/*});
-/*const div = document.getElementById('general');
-div.classList.add('animacion');*/
-
-/*function verificacion () {
-    imagen.setAttribute('id');
-    const zonas = [
-        document.getElementById('zona_izquierda') ,
-        document.getElementById('zona_centro') , 
-        document.getElementById('zona_derecha')
-    ]
-
-    const formato = ['izquierda' , 'centro' , 'derecha']
-
-    for (let i = 0; i < zonas.length; i++) {
-        const imagen = zonas [i].querySelector('img');
-        console.log('se ejecuta FOR');
-                
-        if (!imagen || imagen.id !== formato [i]) {
-            console.log('Mal ordenado');
-            
-            animacionMala();
-            break;
-        }
-
-        else {
-            animacionBuena();
-            console.log('se ejecuta orden'); 
-        }
-                
-        /*if (orden) {
-            /*animacionCorrecta();*/
-          /*  zonas.classList.add('animacion');*/
-  /*      }
-    };
-
-*/
 function animacionBuena() {
     zonas.forEach(zona => zona.remove());
     titulo.innerHTML = "¡Felicitaciones!<br>Puzzle correctamente resuelto";
@@ -213,110 +109,3 @@ function animacionMala() {
     titulo.innerHTML = "Lo sentimos, Puzzle no resuelto.<br> Prueba otra vez ";
     titulo.classList.add('animacion_resuelta');
 };
-
-/*zonas.forEach(zona => zona.classList.add('animacion'));*/
-
-/*zonas.forEach(zona => {
-    zona.addEventListener('dragover' , event => {
-        event.preventDefault();
-    });
-    
-    zona.addEventListener('drop' , event => {
-        let IdiImagen = event.dataTransfer.getData('imagen');
-        let imagen = document.getElementById(IdiImagen);
-        let parrafo = document.querySelector('p');
-        /*console.log("Se soltó en:", event.target);*/
-  /*      zona.appendChild(imagen);
-        imagen.removeAttribute('id');
-        parrafo.remove();
-        /*verificacion();*/
-        /*animacionCorrecta();*/
-        //Comprobar si todo esta bien
-        //llamar a la funcion comprobar
-        //Si esta mal llamar a la funcion animacion-falsa y la funcion reacer
-        //llamar a la funcion animacion-correcta
-    /*    const verificacion = () => {
-            const zonas = [
-                document.getElementById('zona_izquierda') ,
-                document.getElementById('zona_centro') , 
-                document.getElementById('zona_derecha')
-            ]
-
-        const formato = ['izquierda' , 'centro' , 'derecha']
-        let orden = true;
-
-        for (let i = 0; i < zonas.length; i++) {
-            const imagen = zonas [i].querySelector('img');
-            console.log('se ejecuta FOR');
-            
-            if (!imagen || imagen.id !== formato [i]) {
-                orden = false;
-                /*animacionFalsa();*/
-                /*break;
-                }
-                     
-                if (orden) {
-                    /*animacionCorrecta();*/
-                  /*  zonas.classList.add('animacion');
-                }
-            }
-        }
-    });
-    /*verificacion();*/
-    /*animacionFalsa();*/
-/*});*/
-
-/*verificacion();*/
-//Crear una Funcion que utilice este codigo:
-/*imagen.classList.add('animacion');*/
-
-/*const div = document.getElementById('general');*/
-
-/*function verificacion () {
-    console.log('se ejecuto la funcion verificar');
-    /*const zonaIzquierda = document.getElementById('zona_izquierda');
-    const zonaCentro = document.getElementById('zona_centro');
-    const zonaDerecha = document.getElementById('zona_derecha');*/
-
-    /*const imagenIzquierda = document.getElementById('izquierda');
-    const imagenCentro = document.getElementById('centro');
-    const imagenDerecha = document.getElementById('derecha');*/
-
-    /*const zonas = [
-        document.getElementById('zona_izquierda') ,
-        document.getElementById('zona_centro') , 
-        document.getElementById('zona_derecha')
-    ]
-
-    const formato = ['izquierda' , 'centro' , 'derecha']
-    let orden = true;
-
-    for (let i = 0; i < zonas.length; i++) {
-        const imagen = zonas [i].querySelector('img');
-        console.log('se ejecuta FOR');
-        
-        
-        if (!imagen || imagen.id !== formato [i]) {
-            orden = false;
-            /*animacionFalsa();*/
-      /*      break;
-        }
-
-        /*if (imagen || imagen.id === formato [i]) {
-            animacionCorrecta();
-        }*/
-
-        /*if (orden) {
-            /*animacionCorrecta();*/
-           /* zonas.classList.add('animacion');
-        }*/
-  /*  }
-};*/
-
-/*animacionCorrecta();*/
-
-/*function animacionCorrecta () {
-    zonas.classList.add('animacion');
-    console.log('se ejecuto la funcion de animacion');
-};*/
-
